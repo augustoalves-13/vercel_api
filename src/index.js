@@ -10,7 +10,9 @@ server.use(express.json())
 server.use(cors())
 
 api.get('/api' , async (req, resp) => {
-    resp.send('API FUNFANDO ')
+    return resp.json({
+        message: "API FUNFANDO"
+    })
 })
 
 server.use(api)
