@@ -15,4 +15,4 @@ api.get('/api' , async (req, resp) => {
 
 server.use(api)
 
-server.listen(process.env.PORT, ()=>console.log(`API ONLINE NA PORTA ${process.env.PORT}`))
+server.listen(process.env.PORT ?? 4000, ()=>console.log(`API ONLINE NA PORTA ${process.env.PORT}`))
