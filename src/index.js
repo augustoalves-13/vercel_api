@@ -9,8 +9,22 @@ const api = Router()
 server.use(express.json())
 server.use(cors())
 
-api.get('/api' , async (req, resp) => {
-    return alert('teste')
+api.get('/api/:name' , async (req, resp) => {
+    try {
+        const name = req.params.name
+        
+        if(name.length < 3) throw new Error('teste testando')
+
+        resp.send(`Olá ${name}`)
+        resp.json(`Olá ${name}`)
+        alert(`Olá ${name}`)
+
+
+    } catch (error) {
+        resp.status(401).send({
+            erro: error.message
+        })
+    }
 })
 
 server.use(api)
